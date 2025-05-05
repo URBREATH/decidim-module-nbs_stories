@@ -1,0 +1,24 @@
+---
+kaa:
+  decidim:
+    nbs:
+      actions:
+        destroy: Óshiriw
+        edit: Ózgeris kirgiziw
+        title: Háreketler
+      admin:
+        posts:
+          edit:
+            save: Jańalaw
+          new:
+            create: Jaratıw
+      models:
+        post:
+          fields:
+            author: Avtor
+    components:
+      nbs:
+        actions:
+          create: Jaratıw
+          destroy: Óshiriw
+          update: Jańalaw

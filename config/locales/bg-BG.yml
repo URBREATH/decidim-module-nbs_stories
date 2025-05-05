@@ -1,0 +1,13 @@
+bg:
+  activemodel:
+    models:
+      decidim/nbs/create_post_event: Нова блог публикация
+  activerecord:
+    models:
+      decidim/nbs/post:
+        one: Публикация
+        other: Публикации
+  decidim:
+    nbs:
+      actions:
+        confirm_destroy: Сигурни ли сте, че желаете да изтриете тази публикация?

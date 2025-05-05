@@ -1,0 +1,6 @@
+---
+sl:
+  decidim:
+    nbs:
+      actions:
+        destroy: Izbriši
