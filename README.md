@@ -13,6 +13,9 @@ Add this line to your application's Gemfile:
 
 ```ruby
 gem 'decidim-nbs'
+bundle
+bin/rails decidim_nbs:install:migrations
+bin/rails db:migrate
 ```
 
 And then execute:
