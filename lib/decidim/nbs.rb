@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "decidim/nbs/admin"
-require "decidim/nbs/api"
+#require "decidim/nbs/api"
 require "decidim/nbs/engine"
 require "decidim/nbs/admin_engine"
 require "decidim/nbs/component"
