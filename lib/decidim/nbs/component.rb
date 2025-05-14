@@ -7,7 +7,6 @@ Decidim.register_component(:nbs) do |component|
   component.icon_key = "pen-nib-line"
   component.permissions_class_name = "Decidim::Nbs::Permissions"
 
-  component.query_type = "Decidim::Nbs::NbsType"
 
   component.on(:before_destroy) do |instance|
     raise StandardError, "Cannot remove this component" if Decidim::Nbs::Post.where(component: instance).any?
