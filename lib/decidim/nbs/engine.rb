@@ -22,7 +22,7 @@ module Decidim
       end
 
       initializer "decidim_nbs.register_icons" do
-        Decidim.icons.register(name: "Decidim::Nbs::Post", icon: "pen-nib-line", description: "nbs post", category: "activity", engine: :core)
+        Decidim.icons.register(name: "Decidim::Nbs::Post", icon: "earth-line", description: "nbs post", category: "activity", engine: :core)
       end
 
       initializer "decidim_nbs.add_cells_view_paths" do

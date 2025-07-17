@@ -4,7 +4,7 @@ Decidim.register_component(:nbs) do |component|
   component.engine = Decidim::Nbs::Engine
   component.admin_engine = Decidim::Nbs::AdminEngine
   component.icon = "media/images/decidim_nbs.svg"
-  component.icon_key = "pen-nib-line"
+  component.icon_key = "earth-line"
   component.permissions_class_name = "Decidim::Nbs::Permissions"
 
 
