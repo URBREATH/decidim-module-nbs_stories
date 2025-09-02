@@ -1,68 +1,118 @@
----
 nl:
   activemodel:
+    attributes:
+      post:
+        body: Inhoud
+        decidim_author_id: Auteur
+        published_at: Publicatietijd
+        title: Titel
     models:
-      decidim/nbs/create_post_event: Nieuwe blogpost
+      decidim/nbs/create_post_event: Nieuwe NBS-post
   activerecord:
     models:
       decidim/nbs/post:
         one: Post
-        other: Stories
+        other: Verhalen
   decidim:
     nbs:
       actions:
-        author_id: Bericht aanmaken als
-        confirm_destroy: Weet je zeker dat je dit bericht wilt verwijderen?
-        destroy: Verwijder
-        edit: Bewerk
-        new: Nieuwe blogpost
-        title: acties
+        author_id: Maak verhaal als
+        confirm_destroy: Weet je zeker dat je dit verhaal wilt verwijderen?
+        destroy: Verwijderen
+        edit: Bewerken
+        new: Nieuw verhaal
+        title: Acties
       admin:
         posts:
+          create:
+            invalid: Er is een probleem opgetreden bij het maken van deze post.
+            success: Verhaal succesvol aangemaakt.
+          destroy:
+            success: Verhaal succesvol verwijderd.
           edit:
             save: Bijwerken
-            title: Bericht bewerken
+            title: Post bewerken
           index:
-            title: berichten
+            not_published_yet: Nog niet gepubliceerd.
+            title: Verhalen
           new:
-            create: creëren
-            title: Maak bericht
+            create: Maak aan
+            title: Post aanmaken
           update:
-            invalid: Er zijn fouten opgetreden bij het opslaan van deze blogpost.
+            invalid: Er is een probleem opgetreden bij het opslaan van de post.
+            success: Verhaal succesvol opgeslagen.
+          form:  
+            iframe_width: "Iframe-breedte (px of %)"
+            iframe_height: "Iframe-hoogte (px)"     
       admin_log:
         post:
-          create: "%{user_name} heeft de %{resource_name} blog gemaakt in %{space_name}"
-          delete: "%{user_name} heeft de %{resource_name} blog verwijderd in %{space_name}"
-          update: "%{user_name} heeft de %{resource_name} blog bijgewerkt in %{space_name}"
+          create: "%{user_name} heeft het NBS-verhaal %{resource_name} gemaakt in %{space_name}"
+          delete: "%{user_name} heeft het NBS-verhaal %{resource_name} verwijderd uit %{space_name}"
+          update: "%{user_name} heeft het NBS-verhaal %{resource_name} bijgewerkt in %{space_name}"
+      content_blocks:
+        highlighted_posts:
+          last_published: Laatst gepubliceerd
+          name: Verhalen
+          see_all: Bekijk alle posts
+      last_activity:
+        new_post: 'Nieuwe post:'
       models:
         post:
           fields:
             author: Auteur
-            body: Tekstgedeelte
-            official_blog_post: Officiële blogpost
+            body: Inhoud
+            official_blog_post: Officiële post
+            published_at: Publicatietijd
+            title: Titel
+      posts:
+        index:
+          count:
+            one: "%{count} post"
+            other: "%{count} posts"
+          empty: Er zijn nog geen verhalen.
     components:
-      nbs:
-        actions:
-          create: Creëren
-          destroy: Verwijderen
-          update: Bijwerken
-        name: blog
-        settings:
-          global:
-            announcement: Aankondiging
-            comments_enabled: Reacties ingeschakeld
-            comments_max_length: Commentaar maximale lengte (laat 0 voor standaard waarde)
-          step:
-            announcement: Aankondiging
-            comments_blocked: Reacties geblokkeerd
-            endorsements_blocked: Aanbevelingen geblokkeerd
-            endorsements_enabled: Aanbevelingen ingeschakeld
+     nbs:
+      actions:
+        comment: Reageer
+        create: Maak
+        destroy: Verwijder
+        endorse: Ondersteun
+        update: Bijwerken
+      name: NBS-verhalen
+      settings:
+        global:
+          announcement: Aankondiging
+          comments_enabled: Reacties ingeschakeld
+          comments_max_length: Maximale lengte van reacties (0 voor standaardwaarde)
+          content_height: Inhoudshoogte
+          content_height_help: Om automatische hoogteberekening te gebruiken, moet je provider de iframe-resizer JavaScript-bibliotheek ondersteunen. Controleer dit voordat je de optie inschakelt. Meer info in de documentatie van iframe-resizer.
+          content_height_options:
+            '16:9': '16:9'
+            '4:3': '4:3'
+            auto: Automatische hoogte
+            manual_pixel: Handmatige hoogte in pixels
+          content_width: Inhoudsbreedte
+          content_width_options:
+            full_width: Volledige breedte
+            manual_percentage: Handmatige breedte in procent
+            manual_pixel: Handmatige breedte in pixels
+          frameborder: Toon rand
+          height_value: Hoogtewaarde
+          src: Inhoudsbron
+          src_help: Voer het pad in van de bron die moet worden weergegeven.
+          viewport_width: Beperk maximale breedte tot de applicatie-viewport
+          width_value: Breedtewaarde
+        step:
+          announcement: Aankondiging
+          comments_blocked: Reacties geblokkeerd
+          endorsements_blocked: Ondersteuningen geblokkeerd
+          endorsements_enabled: Ondersteuningen ingeschakeld
     events:
       nbs:
         post_created:
-          email_intro: Het bericht "%{resource_title}" is gepubliceerd in "%{participatory_space_title}" dat je volgt.
-          email_outro: Je hebt deze melding ontvangen omdat je "%{participatory_space_title}" volgt. Ontvolgen kan door te klikken op de voorgaande link.
-          email_subject: Nieuw bericht gepubliceerd in %{participatory_space_title}
-          notification_title: Het bericht <a href="%{resource_path}">%{resource_title}</a> is gepubliceerd in %{participatory_space_title}
+          email_intro: Het verhaal "%{resource_title}" is gepubliceerd in "%{participatory_space_title}" dat je volgt.
+          email_outro: Je ontvangt deze melding omdat je "%{participatory_space_title}" volgt. Je kunt je afmelden via de vorige link.
+          email_subject: Nieuw verhaal gepubliceerd in %{participatory_space_title}
+          notification_title: Het verhaal <a href="%{resource_path}">%{resource_title}</a> is gepubliceerd in %{participatory_space_title}
     statistics:
-      posts_count: Berichten
+      posts_count: Verhalen

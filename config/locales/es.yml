@@ -1,98 +1,118 @@
----
 es:
   activemodel:
     attributes:
       post:
-        body: Cuerpo del texto
-        decidim_author_id: Autoria
-        published_at: Hora de publicación
+        body: Cuerpo
+        decidim_author_id: Autor
+        published_at: Fecha de publicación
         title: Título
     models:
-      decidim/nbs/create_post_event: Nueva publicación en el blog
+      decidim/nbs/create_post_event: Nueva publicación NBS
   activerecord:
     models:
       decidim/nbs/post:
         one: Publicación
-        other: Publicaciones
+        other: Historias
   decidim:
     nbs:
       actions:
-        author_id: Crear publicación como
-        confirm_destroy: '¿Seguro que quieres eliminar esta publicación?'
-        destroy: Borrar
+        author_id: Crear historia como
+        confirm_destroy: ¿Está seguro de que desea eliminar esta historia?
+        destroy: Eliminar
         edit: Editar
-        new: Nueva publicación
+        new: Nueva historia
         title: Acciones
       admin:
         posts:
           create:
-            invalid: Se ha producido un error al crear esta publicación.
-            success: Publicación creada correctamente.
+            invalid: Hubo un problema al crear esta publicación.
+            success: Historia creada correctamente.
           destroy:
-            success: La publicación se ha eliminado correctamente.
+            success: Historia eliminada correctamente.
           edit:
             save: Actualizar
             title: Editar publicación
           index:
-            not_published_yet: No publicada aún.
-            title: Publicaciones
+            not_published_yet: Aún no publicada.
+            title: Historias
           new:
             create: Crear
             title: Crear publicación
           update:
-            invalid: Se ha producido un error al guardar la publicación.
-            success: Se ha guardado la publicación correctamente.
+            invalid: Hubo un problema al guardar la publicación.
+            success: Historia guardada correctamente.
+          form:
+            iframe_width: "Ancho del iframe (px o %)"
+            iframe_height: "Alto del iframe (px)"
       admin_log:
         post:
-          create: "%{user_name} creó el post %{resource_name} en el blog de %{space_name}"
-          delete: "%{user_name} ha eliminado el post %{resource_name} en el blog de %{space_name}"
-          update: "%{user_name} ha actualizado el post %{resource_name} en el blog de %{space_name}"
+          create: "%{user_name} creó la historia NBS %{resource_name} en %{space_name}"
+          delete: "%{user_name} eliminó la historia NBS %{resource_name} de %{space_name}"
+          update: "%{user_name} actualizó la historia NBS %{resource_name} en %{space_name}"
       content_blocks:
         highlighted_posts:
           last_published: Última publicación
-          name: Publicaciones
+          name: Historias
           see_all: Ver todas las publicaciones
       last_activity:
         new_post: 'Nueva publicación:'
       models:
         post:
           fields:
-            author: Autora
+            author: Autor
             body: Cuerpo
-            official_blog_post: Post oficial
-            published_at: Hora de publicación
+            official_blog_post: Publicación oficial
+            published_at: Fecha de publicación
             title: Título
       posts:
         index:
           count:
             one: "%{count} publicación"
             other: "%{count} publicaciones"
-          empty: Aún no hay ninguna publicación.
+          empty: Aún no hay historias.
     components:
       nbs:
         actions:
           comment: Comentar
           create: Crear
-          destroy: Borrar
-          endorse: Adherirse
+          destroy: Eliminar
+          endorse: Apoyar
           update: Actualizar
-        name: Blog
+        name: Historias NBS
         settings:
           global:
-            announcement: Aviso
+            announcement: Anuncio
             comments_enabled: Comentarios habilitados
-            comments_max_length: Longitud máxima de los comentarios (deja 0 si quieres mantener la configuración por defecto)
+            comments_max_length: Longitud máxima de los comentarios (0 = valor predeterminado)
+            content_height: Altura del contenido
+            content_height_help: Para el cálculo automático de altura, su proveedor debe admitir la librería iframe-resizer.
+            content_height_options:
+              '16:9': '16:9'
+              '4:3': '4:3'
+              auto: Altura automática
+              manual_pixel: Altura manual en píxeles
+            content_width: Ancho del contenido
+            content_width_options:
+              full_width: Ancho completo
+              manual_percentage: Ancho manual en porcentaje
+              manual_pixel: Ancho manual en píxeles
+            frameborder: Mostrar borde
+            height_value: Valor de altura
+            src: Fuente del contenido
+            src_help: Inserte la ruta del contenido que se mostrará.
+            viewport_width: Limitar ancho máximo al viewport de la aplicación
+            width_value: Valor de ancho
           step:
-            announcement: Aviso
+            announcement: Anuncio
             comments_blocked: Comentarios bloqueados
-            endorsements_blocked: Adhesiones bloqueadas
-            endorsements_enabled: Adhesiones habilitadas
+            endorsements_blocked: Apoyos bloqueados
+            endorsements_enabled: Apoyos habilitados
     events:
       nbs:
         post_created:
-          email_intro: La publicación "%{resource_title}" se publicó en "%{participatory_space_title}" el cual sigues.
-          email_outro: Recibió esta notificación porque está siguiendo "%{participatory_space_title}". Puedes dejar de seguirlo desde el enlace anterior.
-          email_subject: Nueva publicación publicada en %{participatory_space_title}
-          notification_title: La publicación <a href="%{resource_path}">%{resource_title}</a> se publicó en %{participatory_space_title}.
+          email_intro: La historia "%{resource_title}" se ha publicado en "%{participatory_space_title}", que sigues.
+          email_outro: Has recibido esta notificación porque sigues "%{participatory_space_title}". Puedes dejar de seguir desde el enlace anterior.
+          email_subject: Nueva historia publicada en %{participatory_space_title}
+          notification_title: La historia <a href="%{resource_path}">%{resource_title}</a> se ha publicado en %{participatory_space_title}
     statistics:
-      posts_count: Publicaciones
+      posts_count: Historias

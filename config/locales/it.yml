@@ -1,61 +1,118 @@
----
 it:
   activemodel:
+    attributes:
+      post:
+        body: Contenuto
+        decidim_author_id: Autore
+        published_at: Ora di pubblicazione
+        title: Titolo
     models:
-      decidim/nbs/create_post_event: Nuovo post sul blog
+      decidim/nbs/create_post_event: Nuovo post NBS
   activerecord:
     models:
       decidim/nbs/post:
-        one: Inviare
-        other: Messaggi
+        one: Post
+        other: Storie
   decidim:
     nbs:
       actions:
-        author_id: Crea post come
-        confirm_destroy: Sei sicuro di voler eliminare questo post?
+        author_id: Crea storia come
+        confirm_destroy: Sei sicuro di voler eliminare questa storia?
         destroy: Elimina
         edit: Modifica
-        new: Nuovo post
+        new: Nuova storia
         title: Azioni
       admin:
         posts:
+          create:
+            invalid: Si è verificato un problema durante la creazione di questo post.
+            success: Storia creata con successo.
+          destroy:
+            success: Storia eliminata con successo.
           edit:
-            save: Aggiornare
+            save: Aggiorna
             title: Modifica post
           index:
-            title: Messaggi
+            not_published_yet: Non ancora pubblicato.
+            title: Storie
           new:
-            create: Creare
-            title: Crea un post
+            create: Crea
+            title: Crea post
           update:
-            invalid: Si sono verificati errori durante il salvataggio del post.
+            invalid: Si è verificato un problema durante il salvataggio del post.
+            success: Storia salvata con successo.
+          form:  
+            iframe_width: "Larghezza iframe (px o %)"
+            iframe_height: "Altezza iframe (px)"     
+      admin_log:
+        post:
+          create: "%{user_name} ha creato la storia NBS %{resource_name} in %{space_name}"
+          delete: "%{user_name} ha eliminato la storia NBS %{resource_name} da %{space_name}"
+          update: "%{user_name} ha aggiornato la storia NBS %{resource_name} in %{space_name}"
+      content_blocks:
+        highlighted_posts:
+          last_published: Ultimo pubblicato
+          name: Storie
+          see_all: Vedi tutti i post
+      last_activity:
+        new_post: 'Nuovo post:'
       models:
         post:
           fields:
             author: Autore
-            body: Corpo
+            body: Contenuto
+            official_blog_post: Post ufficiale
+            published_at: Ora di pubblicazione
+            title: Titolo
+      posts:
+        index:
+          count:
+            one: "%{count} post"
+            other: "%{count} post"
+          empty: Non ci sono ancora storie.
     components:
-      nbs:
-        actions:
-          comment: Commento
-          endorse: Appoggia
-        name: blog
-        settings:
-          global:
-            announcement: Annuncio
-            comments_enabled: Commenti abilitati
-            comments_max_length: Lunghezza massima dei commenti (Lasciare 0 per il valore predefinito)
-          step:
-            announcement: Annuncio
-            comments_blocked: Commenti bloccati
-            endorsements_blocked: Appoggi bloccati
-            endorsements_enabled: Appoggi abilitati
+     nbs:
+      actions:
+        comment: Commenta
+        create: Crea
+        destroy: Elimina
+        endorse: Approva
+        update: Aggiorna
+      name: Storie NBS
+      settings:
+        global:
+          announcement: Annuncio
+          comments_enabled: Commenti abilitati
+          comments_max_length: Lunghezza massima dei commenti (0 per valore predefinito)
+          content_height: Altezza contenuto
+          content_height_help: Per utilizzare il calcolo automatico dell’altezza, il tuo provider deve supportare la libreria JavaScript iframe-resizer. Conferma con il provider che sia supportata prima di usare questa opzione. Maggiori dettagli nella documentazione iframe-resizer.
+          content_height_options:
+            '16:9': '16:9'
+            '4:3': '4:3'
+            auto: Altezza automatica
+            manual_pixel: Altezza manuale in pixel
+          content_width: Larghezza contenuto
+          content_width_options:
+            full_width: Larghezza piena
+            manual_percentage: Larghezza manuale in percentuale
+            manual_pixel: Larghezza manuale in pixel
+          frameborder: Mostra bordo
+          height_value: Valore altezza
+          src: Sorgente contenuto
+          src_help: Inserisci il percorso della sorgente contenuto da mostrare.
+          viewport_width: Limita la larghezza massima al viewport dell’applicazione
+          width_value: Valore larghezza
+        step:
+          announcement: Annuncio
+          comments_blocked: Commenti bloccati
+          endorsements_blocked: Approvazioni bloccate
+          endorsements_enabled: Approvazioni abilitate
     events:
       nbs:
         post_created:
-          email_intro: Il post "%{resource_title}" è stato pubblicato in "%{participatory_space_title}" che stai seguendo.
-          email_outro: Hai ricevuto questa notifica perché stai seguendo "%{participatory_space_title}". Puoi smettere di seguirlo dal link precedente.
-          email_subject: Nuovo post pubblicato su %{participatory_space_title}
-          notification_title: Il post <a href="%{resource_path}">%{resource_title}</a> è stato pubblicato su %{participatory_space_title}
+          email_intro: La storia "%{resource_title}" è stata pubblicata in "%{participatory_space_title}" che segui.
+          email_outro: Ricevi questa notifica perché segui "%{participatory_space_title}". Puoi annullare l’iscrizione al link precedente.
+          email_subject: Nuova storia pubblicata in %{participatory_space_title}
+          notification_title: La storia <a href="%{resource_path}">%{resource_title}</a> è stata pubblicata in %{participatory_space_title}
     statistics:
-      posts_count: Post
+      posts_count: Storie

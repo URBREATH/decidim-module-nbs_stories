@@ -1,53 +1,59 @@
----
 ro:
   activemodel:
     attributes:
       post:
         body: Conținut
         decidim_author_id: Autor
-        published_at: Publicat la
+        published_at: Ora publicării
         title: Titlu
     models:
-      decidim/nbs/create_post_event: Postare nouă pe blog
+      decidim/nbs/create_post_event: Postare NBS nouă
   activerecord:
     models:
       decidim/nbs/post:
         one: Postare
-        few: Postări
-        other: Postări
+        other: Povești
   decidim:
     nbs:
       actions:
-        author_id: Creează postare ca
-        confirm_destroy: Sigur dorești să ştergi această postare?
+        author_id: Creează poveste ca
+        confirm_destroy: Sigur vrei să ștergi această poveste?
         destroy: Șterge
         edit: Editează
-        new: Postare nouă
+        new: Poveste nouă
         title: Acțiuni
       admin:
         posts:
           create:
-            invalid: A apărut o eroare la crearea acestei postări.
-            success: Postarea a fost creată cu succes.
+            invalid: A apărut o problemă la crearea acestei postări.
+            success: Poveste creată cu succes.
           destroy:
-            success: Postarea a fost ștearsă cu succes.
+            success: Poveste ștearsă cu succes.
           edit:
             save: Actualizează
             title: Editează postarea
           index:
-            not_published_yet: Nu a fost publicat încă.
-            title: Postări
+            not_published_yet: Încă nepublicat.
+            title: Povești
           new:
             create: Creează
             title: Creează postare
           update:
-            invalid: A apărut o eroare la salvarea postării.
-            success: Postarea a fost salvată cu succes.
+            invalid: A apărut o problemă la salvarea postării.
+            success: Poveste salvată cu succes.
+          form:  
+            iframe_width: "Lățimea iframe-ului (px sau %)"
+            iframe_height: "Înălțimea iframe-ului (px)"     
       admin_log:
         post:
-          create: "%{user_name} a creat postarea de blog %{resource_name} în %{space_name}"
-          delete: "%{user_name} a șters postarea de blog %{resource_name} din %{space_name}"
-          update: "%{user_name} a actualizat postarea de blog %{resource_name} în %{space_name}"
+          create: "%{user_name} a creat povestea NBS %{resource_name} în %{space_name}"
+          delete: "%{user_name} a șters povestea NBS %{resource_name} din %{space_name}"
+          update: "%{user_name} a actualizat povestea NBS %{resource_name} în %{space_name}"
+      content_blocks:
+        highlighted_posts:
+          last_published: Ultimele publicate
+          name: Povești
+          see_all: Vezi toate postările
       last_activity:
         new_post: 'Postare nouă:'
       models:
@@ -56,33 +62,57 @@ ro:
             author: Autor
             body: Conținut
             official_blog_post: Postare oficială
-            published_at: Publicat la
+            published_at: Ora publicării
             title: Titlu
+      posts:
+        index:
+          count:
+            one: "%{count} postare"
+            other: "%{count} postări"
+          empty: Nu există încă povești.
     components:
-      nbs:
-        actions:
-          comment: Comentariu
-          create: Creează
-          destroy: Șterge
-          endorse: Susține
-          update: Actualizează
-        name: Blog
-        settings:
-          global:
-            announcement: Anunţ
-            comments_enabled: Comentarii activate
-            comments_max_length: Lungimea maximă a comentariilor (lăsați 0 pentru valoarea implicită)
-          step:
-            announcement: Anunţ
-            comments_blocked: Comentarii blocate
-            endorsements_blocked: Susțineri blocate
-            endorsements_enabled: Susțineri activate
+     nbs:
+      actions:
+        comment: Comentează
+        create: Creează
+        destroy: Șterge
+        endorse: Susține
+        update: Actualizează
+      name: Povești NBS
+      settings:
+        global:
+          announcement: Anunț
+          comments_enabled: Comentarii activate
+          comments_max_length: Lungimea maximă a comentariului (0 pentru implicit)
+          content_height: Înălțimea conținutului
+          content_height_help: Pentru a utiliza calculul automat al înălțimii, furnizorul tău trebuie să accepte librăria JavaScript iframe-resizer. Confirmă înainte de a activa opțiunea. Mai multe detalii în documentația iframe-resizer.
+          content_height_options:
+            '16:9': '16:9'
+            '4:3': '4:3'
+            auto: Înălțime automată
+            manual_pixel: Înălțime manuală în pixeli
+          content_width: Lățimea conținutului
+          content_width_options:
+            full_width: Lățime completă
+            manual_percentage: Lățime manuală în procente
+            manual_pixel: Lățime manuală în pixeli
+          frameborder: Afișează chenar
+          height_value: Valoare înălțime
+          src: Sursă conținut
+          src_help: Introdu calea sursei de conținut de afișat.
+          viewport_width: Limitează lățimea maximă la viewport-ul aplicației
+          width_value: Valoare lățime
+        step:
+          announcement: Anunț
+          comments_blocked: Comentarii blocate
+          endorsements_blocked: Susțineri blocate
+          endorsements_enabled: Susțineri activate
     events:
       nbs:
         post_created:
-          email_intro: Postarea "%{resource_title}" a fost publicată în "%{participatory_space_title}" pe care o urmărești.
-          email_outro: Ai primit această notificare deoarece urmărești „%{participatory_space_title}”. Poți anula abonarea de la link-ul anterior.
-          email_subject: Postare nouă publicată în %{participatory_space_title}
-          notification_title: Postarea <a href="%{resource_path}">%{resource_title}</a> a fost publicată în %{participatory_space_title}
+          email_intro: Povestea "%{resource_title}" a fost publicată în "%{participatory_space_title}" pe care îl urmărești.
+          email_outro: Primești această notificare pentru că urmărești "%{participatory_space_title}". Te poți dezabona de la link-ul anterior.
+          email_subject: Poveste nouă publicată în %{participatory_space_title}
+          notification_title: Povestea <a href="%{resource_path}">%{resource_title}</a> a fost publicată în %{participatory_space_title}
     statistics:
-      posts_count: Postări
+      posts_count: Povești

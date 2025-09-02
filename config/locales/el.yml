@@ -1,87 +1,115 @@
----
 el:
   activemodel:
     attributes:
       post:
-        body: Σώμα
-        decidim_author_id: Συντάκτης
+        body: Κείμενο
+        decidim_author_id: Συγγραφέας
         published_at: Ώρα δημοσίευσης
         title: Τίτλος
     models:
-      decidim/nbs/create_post_event: Νέα ανάρτηση ιστολογίου
+      decidim/nbs/create_post_event: Νέα ανάρτηση NBS
   activerecord:
     models:
       decidim/nbs/post:
-        one: Δημοσίευση
-        other: Δημοσιεύσεις
+        one: Ανάρτηση
+        other: Ιστορίες
   decidim:
     nbs:
       actions:
-        author_id: Δημιουργία ανάρτησης ως
-        confirm_destroy: Είστε βέβαιοι ότι θέλετε να διαγράψετε αυτήν τη δημοσίευση;
+        author_id: Δημιουργία ιστορίας ως
+        confirm_destroy: Είστε σίγουροι ότι θέλετε να διαγράψετε αυτήν την ιστορία;
         destroy: Διαγραφή
         edit: Επεξεργασία
-        new: Νέα δημοσίευση
+        new: Νέα ιστορία
         title: Ενέργειες
       admin:
         posts:
           create:
-            invalid: Υπήρξε ένα πρόβλημα κατά τη δημιουργία αυτής της ανάρτησης.
-            success: Η ανάρτηση δημιουργήθηκε επιτυχώς.
+            invalid: Παρουσιάστηκε πρόβλημα κατά τη δημιουργία αυτής της ανάρτησης.
+            success: Η ιστορία δημιουργήθηκε με επιτυχία.
           destroy:
-            success: Η ανάρτηση διαγράφηκε επιτυχώς.
+            success: Η ιστορία διαγράφηκε με επιτυχία.
           edit:
             save: Ενημέρωση
             title: Επεξεργασία ανάρτησης
           index:
-            not_published_yet: Δεν έχει δημοσιευθεί ακόμα.
-            title: Δημοσιεύσεις
+            not_published_yet: Δεν έχει δημοσιευθεί ακόμη.
+            title: Ιστορίες
           new:
             create: Δημιουργία
-            title: Δημιουργία δημοσίευσης
+            title: Δημιουργία ανάρτησης
           update:
-            invalid: Υπήρξε ένα πρόβλημα κατά την αποθήκευση της ανάρτησης.
-            success: Η ανάρτηση αποθηκεύτηκε επιτυχώς.
+            invalid: Παρουσιάστηκε πρόβλημα κατά την αποθήκευση της ανάρτησης.
+            success: Η ιστορία αποθηκεύτηκε με επιτυχία.
+          form:
+            iframe_width: "Πλάτος iframe (px ή %)"
+            iframe_height: "Ύψος iframe (px)"
       admin_log:
         post:
-          create: "Ο/Η %{user_name} δημιούργησε την ανάρτηση %{resource_name} στο %{space_name}"
-          delete: "Ο/Η %{user_name} διέγραψε την ανάρτηση %{resource_name} στο %{space_name}"
-          update: "Ο/Η %{user_name} ενημέρωση την ανάρτηση %{resource_name} στο %{space_name}"
+          create: "%{user_name} δημιούργησε την ιστορία NBS %{resource_name} στο %{space_name}"
+          delete: "%{user_name} διέγραψε την ιστορία NBS %{resource_name} από το %{space_name}"
+          update: "%{user_name} ενημέρωσε την ιστορία NBS %{resource_name} στο %{space_name}"
+      content_blocks:
+        highlighted_posts:
+          last_published: Τελευταία δημοσίευση
+          name: Ιστορίες
+          see_all: Δείτε όλες τις αναρτήσεις
       last_activity:
         new_post: 'Νέα ανάρτηση:'
       models:
         post:
           fields:
-            author: Συντάκτης
-            body: Σώμα
+            author: Συγγραφέας
+            body: Κείμενο
             official_blog_post: Επίσημη ανάρτηση
             published_at: Ώρα δημοσίευσης
             title: Τίτλος
+      posts:
+        index:
+          count:
+            one: "%{count} ανάρτηση"
+            other: "%{count} αναρτήσεις"
+          empty: Δεν υπάρχουν ακόμη ιστορίες.
     components:
       nbs:
         actions:
-          comment: Σχόλιο
+          comment: Σχολιάστε
           create: Δημιουργία
           destroy: Διαγραφή
-          endorse: Επιδοκιμασία
+          endorse: Υποστήριξη
           update: Ενημέρωση
-        name: Ιστολόγιο
+        name: Ιστορίες NBS
         settings:
           global:
             announcement: Ανακοίνωση
             comments_enabled: Τα σχόλια ενεργοποιήθηκαν
-            comments_max_length: Μέγιστο μέγεθος σχολίων (Αφήστε το 0 για το προκαθορισμένο μέγεθος)
+            comments_max_length: Μέγιστο μήκος σχολίων (0 = προεπιλογή)
+            content_height: Ύψος περιεχομένου
+            content_height_help: Για αυτόματο υπολογισμό ύψους, ο πάροχός σας πρέπει να υποστηρίζει τη βιβλιοθήκη iframe-resizer.
+            content_height_options:
+              '16:9': '16:9'
+              '4:3': '4:3'
+              auto: Αυτόματο ύψος
+              manual_pixel: Χειροκίνητο ύψος σε pixel
+            content_width: Πλάτος περιεχομένου
+            content_width_options:
+              full_width: Πλήρες πλάτος
+              manual_percentage: Χειροκίνητο πλάτος σε ποσοστό
+              manual_pixel: Χειροκίνητο πλάτος σε pixel
+            frameborder: Εμφάνιση πλαισίου
+            height_value: Τιμή ύψους
+            src: Πηγή περιεχομένου
+            src_help: Εισαγάγετε τη διαδρομή για το περιεχόμενο που θα εμφανιστεί.
+            viewport_width: Περιορισμός μέγιστου πλάτους στο παράθυρο προβολής
+            width_value: Τιμή πλάτους
           step:
             announcement: Ανακοίνωση
-            comments_blocked: Τα σχόλια αποκλείστηκαν
-            endorsements_blocked: Επιδοκιμασίες αποκλεισμένες
-            endorsements_enabled: Επιδοκιμασίες ενεργοποιημένες
+            comments_blocked: Σχόλια αποκλεισμένα
+            endorsements_blocked: Υποστηρίξεις αποκλεισμένες
+            endorsements_enabled: Υποστηρίξεις ενεργές
     events:
       nbs:
         post_created:
-          email_intro: Η ανάρτηση «%{resource_title}» έχει δημοσιευτεί στον χώρο συμμετοχής «%{participatory_space_title}» που ακολουθείτε.
-          email_outro: Λάβατε αυτήν την ειδοποίηση επειδή ακολουθείτε τον χώρο συμμετοχής «%{participatory_space_title}». Μπορείτε να σταματήσετε να τον ακολουθείτε από τον προηγούμενο σύνδεσμο.
-          email_subject: Νέα ανάρτηση δημοσιεύτηκε στον χώρο συμμετοχής %{participatory_space_title}
-          notification_title: Η ανάρτηση <a href="%{resource_path}">%{resource_title}</a> δημοσιεύτηκε στον χώρο συμμετοχής %{participatory_space_title}
-    statistics:
-      posts_count: Αναρτήσεις
+          email_intro: Η ιστορία "%{resource_title}" δημοσιεύτηκε στο "%{participatory_space_title}" που ακολουθείτε.
+          email_outro: Λαμβάνετε αυτήν την ειδοποίηση επειδή ακολουθείτε το "%{participatory_space_title}". Μπορείτε να το σταματήσετε μέσω του προηγούμενου συνδέσμου.
+          email_subject_

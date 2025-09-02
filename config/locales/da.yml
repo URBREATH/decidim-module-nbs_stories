@@ -1,1 +1,118 @@
 da:
+  activemodel:
+    attributes:
+      post:
+        body: Indhold
+        decidim_author_id: Forfatter
+        published_at: Udgivelsestid
+        title: Titel
+    models:
+      decidim/nbs/create_post_event: Nyt NBS-indlæg
+  activerecord:
+    models:
+      decidim/nbs/post:
+        one: Indlæg
+        other: Historier
+  decidim:
+    nbs:
+      actions:
+        author_id: Opret historie som
+        confirm_destroy: Er du sikker på, at du vil slette denne historie?
+        destroy: Slet
+        edit: Rediger
+        new: Ny historie
+        title: Handlinger
+      admin:
+        posts:
+          create:
+            invalid: Der opstod et problem med at oprette dette indlæg.
+            success: Historie oprettet.
+          destroy:
+            success: Historie slettet.
+          edit:
+            save: Opdater
+            title: Rediger indlæg
+          index:
+            not_published_yet: Endnu ikke udgivet.
+            title: Historier
+          new:
+            create: Opret
+            title: Opret indlæg
+          update:
+            invalid: Der opstod et problem med at gemme indlægget.
+            success: Historie gemt.
+          form:
+            iframe_width: "Iframe bredde (px eller %)"
+            iframe_height: "Iframe højde (px)"
+      admin_log:
+        post:
+          create: "%{user_name} oprettede NBS-historien %{resource_name} i %{space_name}"
+          delete: "%{user_name} slettede NBS-historien %{resource_name} fra %{space_name}"
+          update: "%{user_name} opdaterede NBS-historien %{resource_name} i %{space_name}"
+      content_blocks:
+        highlighted_posts:
+          last_published: Sidst udgivet
+          name: Historier
+          see_all: Se alle indlæg
+      last_activity:
+        new_post: 'Nyt indlæg:'
+      models:
+        post:
+          fields:
+            author: Forfatter
+            body: Indhold
+            official_blog_post: Officielt indlæg
+            published_at: Udgivelsestid
+            title: Titel
+      posts:
+        index:
+          count:
+            one: "%{count} indlæg"
+            other: "%{count} indlæg"
+          empty: Der er endnu ingen historier.
+    components:
+      nbs:
+        actions:
+          comment: Kommentér
+          create: Opret
+          destroy: Slet
+          endorse: Anbefal
+          update: Opdater
+        name: NBS-historier
+        settings:
+          global:
+            announcement: Meddelelse
+            comments_enabled: Kommentarer aktiveret
+            comments_max_length: Maksimal længde på kommentarer (0 = standardværdi)
+            content_height: Indholdshøjde
+            content_height_help: For automatisk højdeberegning skal din udbyder understøtte iframe-resizer biblioteket.
+            content_height_options:
+              '16:9': '16:9'
+              '4:3': '4:3'
+              auto: Automatisk højde
+              manual_pixel: Manuel højde i pixels
+            content_width: Indholdsbredde
+            content_width_options:
+              full_width: Fuld bredde
+              manual_percentage: Manuel bredde i procent
+              manual_pixel: Manuel bredde i pixels
+            frameborder: Vis ramme
+            height_value: Højdeværdi
+            src: Indholdskilde
+            src_help: Indsæt stien til det indhold, der skal vises.
+            viewport_width: Begræns maksimal bredde til visningsområdet
+            width_value: Breddeværdi
+          step:
+            announcement: Meddelelse
+            comments_blocked: Kommentarer blokeret
+            endorsements_blocked: Anbefalinger blokeret
+            endorsements_enabled: Anbefalinger aktiveret
+    events:
+      nbs:
+        post_created:
+          email_intro: Historien "%{resource_title}" er blevet udgivet i "%{participatory_space_title}", som du følger.
+          email_outro: Du modtager denne meddelelse, fordi du følger "%{participatory_space_title}". Du kan stoppe med at følge via det forrige link.
+          email_subject: Ny historie udgivet i %{participatory_space_title}
+          notification_title: Historien <a href="%{resource_path}">%{resource_title}</a> er blevet udgivet i %{participatory_space_title}
+    statistics:
+      posts_count: Historier

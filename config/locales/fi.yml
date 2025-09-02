@@ -1,98 +1,118 @@
----
 fi:
   activemodel:
     attributes:
       post:
-        body: Sisältöteksti
-        decidim_author_id: Laatija
+        body: Sisältö
+        decidim_author_id: Tekijä
         published_at: Julkaisuaika
         title: Otsikko
     models:
-      decidim/nbs/create_post_event: Uusi blogiartikkeli
+      decidim/nbs/create_post_event: Uusi NBS-julkaisu
   activerecord:
     models:
       decidim/nbs/post:
-        one: Artikkeli
-        other: Artikkelia
+        one: Julkaisu
+        other: Tarinat
   decidim:
     nbs:
       actions:
-        author_id: Luo artikkeli käyttäjänä
-        confirm_destroy: Haluatko varmasti poistaa tämän artikkelin?
+        author_id: Luo tarina nimellä
+        confirm_destroy: Haluatko varmasti poistaa tämän tarinan?
         destroy: Poista
         edit: Muokkaa
-        new: Uusi artikkeli
+        new: Uusi tarina
         title: Toiminnot
       admin:
         posts:
           create:
-            invalid: Artikkelin luonti epäonnistui.
-            success: Artikkelin luonti onnistui.
+            invalid: Julkaisun luomisessa tapahtui virhe.
+            success: Tarina luotu onnistuneesti.
           destroy:
-            success: Artikkelin poisto onnistui.
+            success: Tarina poistettu onnistuneesti.
           edit:
             save: Päivitä
-            title: Muokkaa artikkelia
+            title: Muokkaa julkaisua
           index:
             not_published_yet: Ei vielä julkaistu.
-            title: Artikkelit
+            title: Tarinat
           new:
             create: Luo
-            title: Luo artikkeli
+            title: Luo julkaisu
           update:
-            invalid: Artikkelin tallennus epäonnistui.
-            success: Artikkelin tallennus onnistui.
+            invalid: Julkaisun tallennuksessa tapahtui virhe.
+            success: Tarina tallennettu onnistuneesti.
+          form:
+            iframe_width: "Iframe leveys (px tai %)"
+            iframe_height: "Iframe korkeus (px)"
       admin_log:
         post:
-          create: "%{user_name} loi blogikirjoituksen %{resource_name} tilassa %{space_name}"
-          delete: "%{user_name} poisti blogikirjoituksen %{resource_name} tilasta %{space_name}"
-          update: "%{user_name} päivitti blogikirjoitusta %{resource_name} tilassa %{space_name}"
+          create: "%{user_name} loi NBS-tarinan %{resource_name} tilassa %{space_name}"
+          delete: "%{user_name} poisti NBS-tarinan %{resource_name} tilasta %{space_name}"
+          update: "%{user_name} päivitti NBS-tarinan %{resource_name} tilassa %{space_name}"
       content_blocks:
         highlighted_posts:
           last_published: Viimeksi julkaistu
-          name: Artikkelit
-          see_all: Näytä kaikki kirjoitukset
+          name: Tarinat
+          see_all: Näytä kaikki julkaisut
       last_activity:
-        new_post: 'Uusi artikkeli:'
+        new_post: 'Uusi julkaisu:'
       models:
         post:
           fields:
-            author: Laatija
-            body: Leipäteksti
-            official_blog_post: Virallinen artikkeli
+            author: Tekijä
+            body: Sisältö
+            official_blog_post: Virallinen julkaisu
             published_at: Julkaisuaika
             title: Otsikko
       posts:
         index:
           count:
-            one: "%{count} artikkeli"
-            other: "%{count} artikkelia"
-          empty: Ei yhtään artikkelia.
+            one: "%{count} julkaisu"
+            other: "%{count} julkaisua"
+          empty: Tarinoita ei ole vielä.
     components:
       nbs:
         actions:
-          comment: Kommentointi
+          comment: Kommentoi
           create: Luo
           destroy: Poista
-          endorse: Suosittelu
+          endorse: Suosittele
           update: Päivitä
-        name: Blogi
+        name: NBS-tarinat
         settings:
           global:
             announcement: Ilmoitus
-            comments_enabled: Kommentointi käytössä
-            comments_max_length: Kommenttien maksimipituus (jätä arvoksi 0 käyttääksesi oletusarvoa)
+            comments_enabled: Kommentit käytössä
+            comments_max_length: Kommenttien enimmäispituus (0 = oletus)
+            content_height: Sisällön korkeus
+            content_height_help: Automaattiseen korkeuden laskentaan palveluntarjoajan on tuettava iframe-resizer-kirjastoa.
+            content_height_options:
+              '16:9': '16:9'
+              '4:3': '4:3'
+              auto: Automaattinen korkeus
+              manual_pixel: Manuaalinen korkeus pikseleinä
+            content_width: Sisällön leveys
+            content_width_options:
+              full_width: Täysi leveys
+              manual_percentage: Manuaalinen leveys prosentteina
+              manual_pixel: Manuaalinen leveys pikseleinä
+            frameborder: Näytä reunus
+            height_value: Korkeus
+            src: Sisällön lähde
+            src_help: Anna polku näytettävään sisältöön.
+            viewport_width: Rajoita enimmäisleveys näkymän leveyteen
+            width_value: Leveys
           step:
             announcement: Ilmoitus
-            comments_blocked: Kommentointi estetty
+            comments_blocked: Kommentit estetty
             endorsements_blocked: Suositukset estetty
             endorsements_enabled: Suositukset käytössä
     events:
       nbs:
         post_created:
-          email_intro: Seuraamassasi kohteessa "%{participatory_space_title}" on julkaistu artikkeli "%{resource_title}".
-          email_outro: Tämä ilmoitus on lähetetty sinulle, koska seuraat kohdetta "%{participatory_space_title}". Voit lopettaa seuraamisen edellä esitetyn linkin kautta.
-          email_subject: Uusi artikkeli julkaistiin osallistumistilassa %{participatory_space_title}
-          notification_title: Kohteessa %{participatory_space_title} on julkaistu artikkeli <a href="%{resource_path}">%{resource_title}</a>
+          email_intro: Tarina "%{resource_title}" on julkaistu tilassa "%{participatory_space_title}", jota seuraat.
+          email_outro: Saat tämän ilmoituksen, koska seuraat tilaa "%{participatory_space_title}". Voit lopettaa seuraamisen edellisestä linkistä.
+          email_subject: Uusi tarina julkaistu tilassa %{participatory_space_title}
+          notification_title: Tarina <a href="%{resource_path}">%{resource_title}</a> on julkaistu tilassa %{participatory_space_title}
     statistics:
-      posts_count: Artikkelia
+      posts_count: Tarinat

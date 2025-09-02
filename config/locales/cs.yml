@@ -1,58 +1,58 @@
----
 cs:
   activemodel:
     attributes:
       post:
-        body: Tělo zprávy
+        body: Tělo
         decidim_author_id: Autor
-        published_at: Čas zveřejnění
-        title: Název
+        published_at: Čas publikování
+        title: Titul
     models:
-      decidim/nbs/create_post_event: Nový blogový příspěvek
+      decidim/nbs/create_post_event: Nový příspěvek NBS
   activerecord:
     models:
       decidim/nbs/post:
-        one: Pošta
-        few: Příspěvky
-        many: Příspěvky
-        other: Příspěvky
+        one: Příspěvek
+        other: Příběhy
   decidim:
     nbs:
       actions:
-        author_id: Vytvořit příspěvek jako
-        confirm_destroy: Opravdu chcete tento příspěvek smazat?
-        destroy: Smazat
+        author_id: Vytvořit příběh jako
+        confirm_destroy: Opravdu chcete tento příběh smazat?
+        destroy: Odstranit
         edit: Upravit
-        new: Nový příspěvek
+        new: Nový příběh
         title: Akce
       admin:
         posts:
           create:
-            invalid: Při vytváření tohoto příspěvku nastal problém.
-            success: Příspěvek byl úspěšně vytvořen.
+            invalid: Při vytváření tohoto příspěvku došlo k chybě.
+            success: Příběh úspěšně vytvořen.
           destroy:
-            success: Příspěvek byl úspěšně smazán.
+            success: Příběh úspěšně smazán.
           edit:
             save: Aktualizovat
             title: Upravit příspěvek
           index:
-            not_published_yet: Zatím nezveřejněno.
-            title: Příspěvky
+            not_published_yet: Ještě nebylo publikováno.
+            title: Příběhy
           new:
             create: Vytvořit
             title: Vytvořit příspěvek
           update:
-            invalid: Při ukládání příspěvku došlo k chybám.
-            success: Příspěvek byl úspěšně uložen.
+            invalid: Při ukládání příspěvku došlo k chybě.
+            success: Příběh úspěšně uložen.
+          form:
+            iframe_width: Šířka iframe (px nebo %)
+            iframe_height: Výška iframe (px)
       admin_log:
         post:
-          create: "%{user_name} vytvořil příspěvek %{resource_name} v %{space_name}"
-          delete: "%{user_name} odstranil příspěvek %{resource_name} z %{space_name}"
-          update: "%{user_name} aktualizoval příspěvek %{resource_name} v %{space_name}"
+          create: "%{user_name} vytvořil NBS příběh %{resource_name} v %{space_name}"
+          delete: "%{user_name} smazal NBS příběh %{resource_name} ze %{space_name}"
+          update: "%{user_name} aktualizoval NBS příběh %{resource_name} v %{space_name}"
       content_blocks:
         highlighted_posts:
           last_published: Naposledy publikováno
-          name: Příspěvky
+          name: Příběhy
           see_all: Zobrazit všechny příspěvky
       last_activity:
         new_post: 'Nový příspěvek:'
@@ -62,41 +62,57 @@ cs:
             author: Autor
             body: Tělo
             official_blog_post: Oficiální příspěvek
-            published_at: Čas zveřejnění
-            title: Název
+            published_at: Čas publikování
+            title: Titul
       posts:
         index:
           count:
             one: "%{count} příspěvek"
-            few: "%{count} příspěvky"
-            many: "%{count} příspěvků"
             other: "%{count} příspěvků"
-          empty: Zatím nejsou žádné příspěvky.
+          empty: Zatím nejsou žádné příběhy.
     components:
       nbs:
         actions:
           comment: Komentář
           create: Vytvořit
-          destroy: Smazat
-          endorse: Schválit
+          destroy: Odstranit
+          endorse: Podpořit
           update: Aktualizovat
-        name: Blog
+        name: NBS Příběhy
         settings:
           global:
             announcement: Oznámení
             comments_enabled: Komentáře povoleny
-            comments_max_length: Maximální délka komentáře (ponechte 0 pro výchozí hodnotu)
+            comments_max_length: Maximální délka komentáře (0 = výchozí)
+            content_height: Výška obsahu
+            content_height_help: Pro automatické výpočty je potřeba podpora iframe-resizer v poskytovateli.
+            content_height_options:
+              '16:9': '16:9'
+              '4:3': '4:3'
+              auto: Automatická výška
+              manual_pixel: Ruční výška v pixelech
+            content_width: Šířka obsahu
+            content_width_options:
+              full_width: Plná šířka
+              manual_percentage: Ruční šířka v procentech
+              manual_pixel: Ruční šířka v pixelech
+            frameborder: Zobrazit rám
+            height_value: Hodnota výšky
+            src: Zdroj obsahu
+            src_help: Vložte cestu ke zdrojovému obsahu.
+            viewport_width: Omezit maximální šířku na viewport
+            width_value: Hodnota šířky
           step:
             announcement: Oznámení
-            comments_blocked: Komentáře byly blokovány
-            endorsements_blocked: Schvalování blokováno
-            endorsements_enabled: Schvalování povoleno
+            comments_blocked: Komentáře zablokovány
+            endorsements_blocked: Podpory zablokovány
+            endorsements_enabled: Podpory povoleny
     events:
       nbs:
         post_created:
-          email_intro: Příspěvek "%{resource_title}" byl zveřejněn v "%{participatory_space_title}", který sledujete.
-          email_outro: Obdrželi jste toto oznámení, protože sledujete "%{participatory_space_title}". Můžete ho zrušit z předchozího odkazu.
-          email_subject: Nový příspěvek publikován v %{participatory_space_title}
-          notification_title: Příspěvek <a href="%{resource_path}">%{resource_title}</a> byl zveřejněn ve %{participatory_space_title}
+          email_intro: Příběh "%{resource_title}" byl publikován ve "%{participatory_space_title}", který sledujete.
+          email_outro: Tento e-mail jste obdrželi, protože sledujete "%{participatory_space_title}". Můžete ho odsledovat pomocí předchozího odkazu.
+          email_subject: Nový příběh publikován v %{participatory_space_title}
+          notification_title: Příběh <a href="%{resource_path}">%{resource_title}</a> byl publikován v %{participatory_space_title}
     statistics:
-      posts_count: Příspěvky
+      posts_count: Příběhy

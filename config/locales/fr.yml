@@ -1,73 +1,75 @@
----
 fr:
   activemodel:
     attributes:
       post:
-        body: Corps du texte
+        body: Contenu
         decidim_author_id: Auteur
         published_at: Date de publication
         title: Titre
     models:
-      decidim/nbs/create_post_event: Nouvel article
+      decidim/nbs/create_post_event: Nouvelle publication NBS
   activerecord:
     models:
       decidim/nbs/post:
-        one: Article
-        other: Articles
+        one: Publication
+        other: Histoires
   decidim:
     nbs:
       actions:
-        author_id: Créer un article en tant que
-        confirm_destroy: Êtes-vous certain de vouloir supprimer cet article ?
+        author_id: Créer une histoire en tant que
+        confirm_destroy: Êtes-vous sûr de vouloir supprimer cette histoire ?
         destroy: Supprimer
         edit: Modifier
-        new: Nouvel article
+        new: Nouvelle histoire
         title: Actions
       admin:
         posts:
           create:
-            invalid: Un problème est survenu lors de la création de cet article.
-            success: Article créé avec succès.
+            invalid: Un problème est survenu lors de la création de cette publication.
+            success: Histoire créée avec succès.
           destroy:
-            success: Article supprimé avec succès.
+            success: Histoire supprimée avec succès.
           edit:
             save: Mettre à jour
-            title: Éditer le post
+            title: Modifier la publication
           index:
             not_published_yet: Pas encore publié.
-            title: Articles
+            title: Histoires
           new:
             create: Créer
-            title: Créer un article
+            title: Créer une publication
           update:
-            invalid: Il y a eu des erreurs lors de l'enregistrement de l'article.
-            success: Article enregistré avec succès.
+            invalid: Un problème est survenu lors de l’enregistrement de la publication.
+            success: Histoire enregistrée avec succès.
+          form:
+            iframe_width: "Largeur de l’iframe (px ou %)"
+            iframe_height: "Hauteur de l’iframe (px)"
       admin_log:
         post:
-          create: "%{user_name} a créé l'article de blog %{resource_name} dans %{space_name}"
-          delete: "%{user_name} a supprimé l'article de blog %{resource_name} dans %{space_name}"
-          update: "%{user_name} a mis à jour l'article de blog %{resource_name} dans %{space_name}"
+          create: "%{user_name} a créé l’histoire NBS %{resource_name} dans %{space_name}"
+          delete: "%{user_name} a supprimé l’histoire NBS %{resource_name} de %{space_name}"
+          update: "%{user_name} a mis à jour l’histoire NBS %{resource_name} dans %{space_name}"
       content_blocks:
         highlighted_posts:
           last_published: Dernière publication
-          name: Articles
-          see_all: Voir tous les articles
+          name: Histoires
+          see_all: Voir toutes les publications
       last_activity:
-        new_post: 'Nouvel article :'
+        new_post: 'Nouvelle publication :'
       models:
         post:
           fields:
             author: Auteur
-            body: Corps du texte
-            official_blog_post: Article officiel
+            body: Contenu
+            official_blog_post: Publication officielle
             published_at: Date de publication
             title: Titre
       posts:
         index:
           count:
-            one: "%{count} article"
-            other: "%{count} articles"
-          empty: Il n'y a pas encore d'articles.
+            one: "%{count} publication"
+            other: "%{count} publications"
+          empty: Il n’y a pas encore d’histoires.
     components:
       nbs:
         actions:
@@ -76,23 +78,41 @@ fr:
           destroy: Supprimer
           endorse: Soutenir
           update: Mettre à jour
-        name: Actualités
+        name: Histoires NBS
         settings:
           global:
             announcement: Annonce
-            comments_enabled: Activer le module de commentaire
-            comments_max_length: Longueur max des commentaires (laisser 0 pour la valeur par défaut)
+            comments_enabled: Commentaires activés
+            comments_max_length: Longueur maximale des commentaires (0 = valeur par défaut)
+            content_height: Hauteur du contenu
+            content_height_help: Pour le calcul automatique de la hauteur, votre fournisseur doit prendre en charge la bibliothèque iframe-resizer.
+            content_height_options:
+              '16:9': '16:9'
+              '4:3': '4:3'
+              auto: Hauteur automatique
+              manual_pixel: Hauteur manuelle en pixels
+            content_width: Largeur du contenu
+            content_width_options:
+              full_width: Pleine largeur
+              manual_percentage: Largeur manuelle en pourcentage
+              manual_pixel: Largeur manuelle en pixels
+            frameborder: Afficher la bordure
+            height_value: Valeur de hauteur
+            src: Source du contenu
+            src_help: Indiquez le chemin du contenu à afficher.
+            viewport_width: Limiter la largeur maximale à la largeur de la fenêtre
+            width_value: Valeur de largeur
           step:
             announcement: Annonce
-            comments_blocked: Commentaires désactivés
+            comments_blocked: Commentaires bloqués
             endorsements_blocked: Soutiens bloqués
             endorsements_enabled: Soutiens activés
     events:
       nbs:
         post_created:
-          email_intro: L'article "%{resource_title}" a été publié dans "%{participatory_space_title}" que vous suivez.
-          email_outro: Vous avez reçu cette notification parce que vous suivez "%{participatory_space_title}". Si vous souhaitez vous désabonner des notifications, connectez-vous à la plateforme, puis rendez-vous dans l'onglet “Mon compte” > “Paramètres des notifications”.
-          email_subject: Nouvel article publié dans %{participatory_space_title}
-          notification_title: L'article <a href="%{resource_path}">%{resource_title}</a> a été publié dans %{participatory_space_title}
+          email_intro: L’histoire "%{resource_title}" a été publiée dans "%{participatory_space_title}" que vous suivez.
+          email_outro: Vous recevez cette notification car vous suivez "%{participatory_space_title}". Vous pouvez vous désabonner depuis le lien précédent.
+          email_subject: Nouvelle histoire publiée dans %{participatory_space_title}
+          notification_title: L’histoire <a href="%{resource_path}">%{resource_title}</a> a été publiée dans %{participatory_space_title}
     statistics:
-      posts_count: Articles
+      posts_count: Histoires
