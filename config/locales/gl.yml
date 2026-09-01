@@ -49,8 +49,8 @@ gl:
           step:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
-            endorsements_blocked: Adhesións bloqueadas
-            endorsements_enabled: Adhesións habilitadas
+            likes_blocked: Adhesións bloqueadas
+            likes_enabled: Adhesións habilitadas
     events:
       nbs:
         post_created:

@@ -105,8 +105,8 @@ el:
           step:
             announcement: Ανακοίνωση
             comments_blocked: Τα σχόλια απενεργοποιήθηκαν
-            endorsements_blocked: Οι υποστηρίξεις απενεργοποιήθηκαν
-            endorsements_enabled: Οι υποστηρίξεις είναι ενεργές
+            likes_blocked: Οι υποστηρίξεις απενεργοποιήθηκαν
+            likes_enabled: Οι υποστηρίξεις είναι ενεργές
     events:
       nbs:
         post_created:

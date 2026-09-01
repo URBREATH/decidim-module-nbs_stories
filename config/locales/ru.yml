@@ -80,8 +80,8 @@ ru:
           step:
             announcement: Объявление
             comments_blocked: Комментарии отключены
-            endorsements_blocked: Возможность выразить поддержку отключена
-            endorsements_enabled: Возможность выразить поддержку включена
+            likes_blocked: Возможность выразить поддержку отключена
+            likes_enabled: Возможность выразить поддержку включена
     events:
       nbs:
         post_created:

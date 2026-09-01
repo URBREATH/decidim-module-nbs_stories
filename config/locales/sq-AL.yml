@@ -85,8 +85,8 @@ sq:
           step:
             announcement: Njoftim
             comments_blocked: Komentet të bllokuara
-            endorsements_blocked: Mbështetjet të bllokuara
-            endorsements_enabled: Mbështetjet të aktivizuara
+            likes_blocked: Mbështetjet të bllokuara
+            likes_enabled: Mbështetjet të aktivizuara
     events:
       nbs:
         post_created:

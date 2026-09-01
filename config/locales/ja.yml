@@ -83,8 +83,8 @@ ja:
           step:
             announcement: お知らせ
             comments_blocked: コメントをブロック
-            endorsements_blocked: オススメをブロック
-            endorsements_enabled: オススメが有効
+            likes_blocked: オススメをブロック
+            likes_enabled: オススメが有効
     events:
       nbs:
         post_created:

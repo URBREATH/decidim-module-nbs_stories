@@ -106,8 +106,8 @@ en:
         step:
           announcement: Announcement
           comments_blocked: Comments blocked
-          endorsements_blocked: Endorsements blocked
-          endorsements_enabled: Endorsements enabled
+          likes_blocked: Endorsements blocked
+          likes_enabled: Endorsements enabled
     events:
       nbs:
         post_created:

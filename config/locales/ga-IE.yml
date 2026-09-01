@@ -38,7 +38,7 @@ ga:
         name: Blag
         settings:
           step:
-            endorsements_blocked: Formhuinithe blocáilte
-            endorsements_enabled: Formhuinithe cumasaithe
+            likes_blocked: Formhuinithe blocáilte
+            likes_enabled: Formhuinithe cumasaithe
     statistics:
       posts_count: Postálacha

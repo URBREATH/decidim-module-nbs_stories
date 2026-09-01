@@ -85,8 +85,8 @@ ca:
           step:
             announcement: Avís
             comments_blocked: Comentaris bloquejats
-            endorsements_blocked: Adhesions bloquejades
-            endorsements_enabled: Adhesions habilitades
+            likes_blocked: Adhesions bloquejades
+            likes_enabled: Adhesions habilitades
     events:
       nbs:
         post_created:

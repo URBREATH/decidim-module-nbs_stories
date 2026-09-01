@@ -48,8 +48,8 @@ pt:
           step:
             announcement: Anúncio
             comments_blocked: Comentários bloqueados
-            endorsements_blocked: Endossamentos bloqueados
-            endorsements_enabled: Endossamentos ativados
+            likes_blocked: Endossamentos bloqueados
+            likes_enabled: Endossamentos ativados
     events:
       nbs:
         post_created:

@@ -85,8 +85,8 @@ fr-CA:
           step:
             announcement: Annonce
             comments_blocked: Commentaires désactivés
-            endorsements_blocked: Soutiens bloqués
-            endorsements_enabled: Soutiens activés
+            likes_blocked: Soutiens bloqués
+            likes_enabled: Soutiens activés
     events:
       nbs:
         post_created:

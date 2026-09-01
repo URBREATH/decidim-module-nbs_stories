@@ -105,8 +105,8 @@ fi:
           step:
             announcement: Ilmoitus
             comments_blocked: Kommentit estetty
-            endorsements_blocked: Suositukset estetty
-            endorsements_enabled: Suositukset käytössä
+            likes_blocked: Suositukset estetty
+            likes_enabled: Suositukset käytössä
     events:
       nbs:
         post_created:

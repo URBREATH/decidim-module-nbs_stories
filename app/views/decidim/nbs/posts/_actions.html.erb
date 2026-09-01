@@ -1,7 +1,7 @@
 <div class="blog__actions">
   <div class="blog__actions-left">
-    <% if endorsements_enabled? %>
-      <%= endorsement_buttons_cell(post) %>
+    <% if likes_enabled? %>
+      <%= cell("decidim/like_block", post) %>
     <% end %>
 
     <%= cell "decidim/comments_button", nil %>
@@ -15,4 +15,4 @@
   </div>
 </div>
 
-<%= cell "decidim/endorsers_list", post, layout: :full %>
+<%= cell "decidim/likers_list", post, layout: :full %>

@@ -105,8 +105,8 @@ da:
           step:
             announcement: Meddelelse
             comments_blocked: Kommentarer blokeret
-            endorsements_blocked: Anbefalinger blokeret
-            endorsements_enabled: Anbefalinger aktiveret
+            likes_blocked: Anbefalinger blokeret
+            likes_enabled: Anbefalinger aktiveret
     events:
       nbs:
         post_created:

@@ -82,8 +82,8 @@ hu:
           step:
             announcement: Közlemény
             comments_blocked: Megjegyzések letiltva
-            endorsements_blocked: Támogatások letiltva
-            endorsements_enabled: Támogatások engedélyezve
+            likes_blocked: Támogatások letiltva
+            likes_enabled: Támogatások engedélyezve
     events:
       nbs:
         post_created:

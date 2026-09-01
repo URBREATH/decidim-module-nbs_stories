@@ -105,8 +105,8 @@ nl:
         step:
           announcement: Aankondiging
           comments_blocked: Reacties geblokkeerd
-          endorsements_blocked: Ondersteuningen geblokkeerd
-          endorsements_enabled: Ondersteuningen ingeschakeld
+          likes_blocked: Ondersteuningen geblokkeerd
+          likes_enabled: Ondersteuningen ingeschakeld
     events:
       nbs:
         post_created:

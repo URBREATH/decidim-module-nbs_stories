@@ -43,8 +43,8 @@ lv:
           step:
             announcement: Paziņojums
             comments_blocked: Komentāri ir bloķēti
-            endorsements_blocked: Atbalsti ir bloķēti
-            endorsements_enabled: Atbalsti ir iespējoti
+            likes_blocked: Atbalsti ir bloķēti
+            likes_enabled: Atbalsti ir iespējoti
     events:
       nbs:
         post_created:

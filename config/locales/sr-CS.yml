@@ -5,5 +5,5 @@ sr:
       nbs:
         settings:
           step:
-            endorsements_blocked: Podržavanja su onemogućena
-            endorsements_enabled: Podržavanja su omogućena
+            likes_blocked: Podržavanja su onemogućena
+            likes_enabled: Podržavanja su omogućena

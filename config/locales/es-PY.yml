@@ -85,8 +85,8 @@ es-PY:
           step:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
-            endorsements_blocked: Adhesiones bloqueadas
-            endorsements_enabled: Adhesiones habilitadas
+            likes_blocked: Adhesiones bloqueadas
+            likes_enabled: Adhesiones habilitadas
     events:
       nbs:
         post_created:

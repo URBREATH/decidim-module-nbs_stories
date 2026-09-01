@@ -105,8 +105,8 @@ es:
           step:
             announcement: Anuncio
             comments_blocked: Comentarios bloqueados
-            endorsements_blocked: Apoyos bloqueados
-            endorsements_enabled: Apoyos habilitados
+            likes_blocked: Apoyos bloqueados
+            likes_enabled: Apoyos habilitados
     events:
       nbs:
         post_created:

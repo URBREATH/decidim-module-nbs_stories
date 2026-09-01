@@ -71,8 +71,8 @@ ar:
           step:
             announcement: إعلان
             comments_blocked: تم حظر التعليقات
-            endorsements_blocked: التأييدات مغلقةٌ
-            endorsements_enabled: التأييدات مُتاحه
+            likes_blocked: التأييدات مغلقةٌ
+            likes_enabled: التأييدات مُتاحه
     events:
       nbs:
         post_created:

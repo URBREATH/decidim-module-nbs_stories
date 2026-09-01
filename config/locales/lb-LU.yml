@@ -71,8 +71,8 @@ lb:
           step:
             announcement: Ankündigung
             comments_blocked: Kommentare blockiert
-            endorsements_blocked: Unterstützung deaktiviert
-            endorsements_enabled: Unterstützung aktiviert
+            likes_blocked: Unterstützung deaktiviert
+            likes_enabled: Unterstützung aktiviert
     events:
       nbs:
         post_created:

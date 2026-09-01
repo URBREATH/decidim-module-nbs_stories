@@ -105,8 +105,8 @@ ro:
         step:
           announcement: Anunț
           comments_blocked: Comentarii blocate
-          endorsements_blocked: Susțineri blocate
-          endorsements_enabled: Susțineri activate
+          likes_blocked: Susțineri blocate
+          likes_enabled: Susțineri activate
     events:
       nbs:
         post_created:

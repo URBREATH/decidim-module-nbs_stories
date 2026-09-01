@@ -105,8 +105,8 @@ it:
         step:
           announcement: Annuncio
           comments_blocked: Commenti bloccati
-          endorsements_blocked: Approvazioni bloccate
-          endorsements_enabled: Approvazioni abilitate
+          likes_blocked: Approvazioni bloccate
+          likes_enabled: Approvazioni abilitate
     events:
       nbs:
         post_created:

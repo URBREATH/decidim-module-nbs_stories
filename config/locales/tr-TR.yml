@@ -50,8 +50,8 @@ tr:
           step:
             announcement: duyuru
             comments_blocked: Yorumlar engellendi
-            endorsements_blocked: Yorumlar engellendi
-            endorsements_enabled: Yorumlar etkin
+            likes_blocked: Yorumlar engellendi
+            likes_enabled: Yorumlar etkin
     events:
       nbs:
         post_created:

@@ -105,8 +105,8 @@ cs:
           step:
             announcement: Oznámení
             comments_blocked: Komentáře zablokovány
-            endorsements_blocked: Podpory zablokovány
-            endorsements_enabled: Podpory povoleny
+            likes_blocked: Podpory zablokovány
+            likes_enabled: Podpory povoleny
     events:
       nbs:
         post_created:
