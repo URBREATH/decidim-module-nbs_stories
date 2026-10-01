@@ -26,7 +26,7 @@ bundle
 
 ## Contributing
 
-See [Decidim](https://github.com/decidim/decidim).
+This engine is distributed under the [GNU AFFERO GENERAL PUBLIC LICENSE](LICENSE).
 
 ## License
 
